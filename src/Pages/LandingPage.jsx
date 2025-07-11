@@ -1,14 +1,31 @@
-import React from 'react';
-import './LandingPage.css'
-import alaga from '../assets/alaga.mp4'
+import React, { useEffect, useState } from 'react';
+import './LandingPage.css';
+import alaga from '../assets/alaga2.mp4';
+
+const messages = [
+  "An Alaga isn't just a host – she's the soul of your celebration, guiding every moment with grace and rhythm.",
+  "From heartfelt prayers to joyful chants, she weaves tradition into every second of your event.",
+  "She doesn't just speak – she connects hearts, uplifts spirits, and sets the atmosphere ablaze with culture.",
+  "For an event that lingers in memories, you need more than a mic – you need an Alaga who understands legacy."
+];
 
 const LandingPage = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIndex((prev) => (prev + 1) % messages.length);
+    }, 5000); // Change every 5s for better readability
+    return () => clearTimeout(timeout);
+  }, [index]);
+
   return (
     <div style={{ 
       position: 'relative', 
       height: '100vh', 
       width: '100vw', 
-      overflow: 'hidden' 
+      overflow: 'hidden',
+      fontFamily: "'Poppins', sans-serif"
     }}>
       <video
         autoPlay
@@ -27,7 +44,7 @@ const LandingPage = () => {
         }}
       >
         <source src={alaga} type="video/mp4" />
-        Your browser does not support the video tag.
+        Your browser does not support the video tag. 
       </video>
 
       {/* Overlay */}
@@ -37,25 +54,44 @@ const LandingPage = () => {
         left: 0,
         height: '100%',
         width: '100%',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // semi-transparent black overlay
+        backgroundColor: 'rgba(0, 0, 0, 0.55)',
         zIndex: -1,
       }} />
 
       {/* Content */}
-      <div style={{ 
-        position: 'relative', 
-        zIndex: 1, 
-        color: 'white', 
-        textAlign: 'center', 
-        paddingTop: '40vh',
-        fontSize: '2rem',
-        fontFamily: 'poppins',
-        textShadow: '0 0 10px rgb(0, 0, 2)',
-      }}>
-        
+      <div
+        style={{ 
+          position: 'relative',
+          zIndex: 1,
+          color: 'white',
+          textAlign: 'center',
+          paddingTop: '35vh',
+          paddingLeft: '10vw',
+          paddingRight: '10vw',
+          fontSize: '1.3rem',
+          fontWeight: '500',
+          minHeight: '7rem'
+        }}
+      >
+        <div className="fade-in-slide" key={index}>
+          {messages[index]}
+        </div>
+
+        {/* CTA Button */}
+        <button
+          className="alaga-button"
+          onClick={() => {
+            const contact = document.getElementById("contact");
+            if (contact) {
+              contact.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+        >
+          Book an Alaga
+        </button>
       </div>
     </div>
   );
-}
+};
 
 export default LandingPage;

@@ -1,0 +1,56 @@
+.what-we-do {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 5rem 2rem;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 750px;
+  margin: auto;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.book-btn {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 999px;
+  background: #ffeb3b;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+  background: #fff700;
+  transform: scale(1.05);
+}

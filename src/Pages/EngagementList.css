@@ -1,0 +1,88 @@
+.engagement-section {
+  position: relative;
+  background: url('../assets/promis.jpg') no-repeat center center/cover;
+  min-height: 100vh;
+  /* color: #fff; */
+  padding: 80px 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.engagement-content {
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.title {
+  font-size: 3rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #38bdf8;
+  display: inline-block;
+  animation: slideDown 1s ease forwards;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  font-family: "poppins", sans-serif;
+  /* color: #ddd; */
+}
+
+.engagement-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  max-width: 600px;
+  margin: auto;
+}
+
+.engagement-item {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+  display: flex;
+  font-family: "poppins", sans-serif;
+  align-items: center;
+  /* color: #f1f1f1; */
+}
+
+.engagement-item.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #38bdf8;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 12px;
+}
+
+/* Title animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

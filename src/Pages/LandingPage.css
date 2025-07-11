@@ -1,0 +1,40 @@
+.fade-in-slide {
+  animation: fadeSlide 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alaga-button {
+  margin-top: 2rem;
+  background-color: white;
+  color: #0000C9;
+  font-weight: 600;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 9999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  z-index: -999;
+}
+
+.alaga-button:hover {
+  background-color: #0000C9;
+  color: white;
+  transform: scale(1.05);
+}
