@@ -3,6 +3,12 @@ import "./OurPromise.css";
 import promiseImage from "../assets/promis.jpg"; // update path if needed
 
 const OurPromise = () => {
+  const scrollToContact = () => {
+  const el = document.getElementById("contact");
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+};
   return (
     <section className="our-promise-section">
       <div className="overlay" />
@@ -25,7 +31,7 @@ const OurPromise = () => {
             <li>Live streaming of your event — this will amplify the experience</li>
           </ul>
 
-          <button className="book-btn">Book Us Now</button>
+          <button onClick={scrollToContact} className="book-btn">Book Us Now</button>
         </div>
       </div>
     </section>

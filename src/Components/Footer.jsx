@@ -14,23 +14,23 @@ const Footer = () => {
         </div>
 
         {/* Navigation */}
-        <div className="footer-nav">
+        {/* <div className="footer-nav">
           <a href="#">Home</a>
           <a href="#">About</a>
           <a href="#">Services</a>
           <a href="#">Contact</a>
-        </div>
+        </div> */}
 
         {/* Socials */}
         <div className="footer-socials">
-          <a href="#"><Facebook size={18} /></a>
-          <a href="#"><Instagram size={18} /></a>
-          <a href="mailto:you@example.com"><Mail size={18} /></a>
+          <a href="https://facebook.com/herexcellencyalaga"><Facebook size={18} /></a>
+          <a href="https://www.instagram.com/fasholaalaga1?igsh=YzljYTk1ODg3Zg=="><Instagram size={18} /></a>
+          <a href="mailto:yetundeolaolu23@g.mail.com"><Mail size={18} /></a>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Alaga MC. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Fashola Alaga MC. All rights reserved.</p>
       </div>
     </footer>
   );

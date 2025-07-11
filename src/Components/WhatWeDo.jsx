@@ -3,6 +3,12 @@ import "./WhatWeDo.css";
 import bgImage from "../assets/image.png"; // make sure this exists
 
 const WhatWeDo = () => {
+  const scrollToContact = () => {
+  const el = document.getElementById("contact");
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+};
   return (
     <section
       className="what-we-do"
@@ -18,7 +24,7 @@ const WhatWeDo = () => {
           facilitated with precise execution. We meet with you and your event
           team to create a detailed program tailored for your needs and customs.
         </p>
-        <button className="book-btn">Book Us Now</button>
+        <button onClick={scrollToContact} className="book-btn">Book Us Now</button>
       </div>
     </section>
   );

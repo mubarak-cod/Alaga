@@ -85,3 +85,17 @@
   margin-top: 0.4rem;
   font-weight: 600;
 }
+
+
+.contact-card {
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
