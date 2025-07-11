@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Header.css";
 import logo from "../assets/logo.jpg";
-import Headroom from "react-headroom";
+// import Headroom from "react-headroom";
 import { SquareMenu, SquareX } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const Header = () => {
     }
   };
   return (
-    <Headroom>
+    // <Headroom>
       <header className="header">
         <div className="logo">
           <Link to="/">
@@ -129,7 +129,7 @@ const Header = () => {
 
         {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
       </header>
-    </Headroom>
+    // </Headroom>
   );
 };
 
