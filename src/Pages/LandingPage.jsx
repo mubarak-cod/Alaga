@@ -113,7 +113,7 @@ const LandingPage = () => {
             }
           }}
         >
-          Book an Alag
+          Book an Alaga
         </button>
       </div>
     </div>
