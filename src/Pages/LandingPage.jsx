@@ -45,7 +45,7 @@ const LandingPage = () => {
           zIndex: -2,
         }}
       >
-        <source src="/videos/alaga2_3.mp4" type="video/mp4" />
+        <source src="https://res.cloudinary.com/dpsxbuxkr/video/upload/v1754906739/alaga2_3_lqmrm8.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -90,7 +90,7 @@ const LandingPage = () => {
             }
           }}
         >
-          Book an Alag
+          Book an Alaga
         </button>
       </div>
     </div>
