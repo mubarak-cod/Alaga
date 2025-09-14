@@ -2,12 +2,24 @@
 // "use client";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { X } from "lucide-react";
 import "./ContactForm.css"; // create this file for custom styling
 // import react from "@vitejs/plugin-react-swc";
 
 const ContactForm = () => {
+   const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#contact") {
+      const el = document.getElementById("contact");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
     // const showMaintenance = false;
     const [showMaintenance, setShowMaintenance] = useState(false)
   const form = useRef();
@@ -38,7 +50,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="contact-form-wrapper">
+    <section className="contact-form-wrapper" id="contact">
 {showMaintenance && (
   <div className="maintenance-overlay">
     <X className="close-icon" onClick={() => setShowMaintenance(false)} />
