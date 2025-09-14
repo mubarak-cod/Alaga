@@ -45,9 +45,7 @@ const LandingPage = ({ scrollToContact }) => {
   const handlePrev = () => setIndex((prev) => (prev - 1 + slides.length) % slides.length);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      handleNext();
-    }, 10000); // auto change every 10s
+    const timer = setInterval(() => handleNext(), 10000);
     return () => clearInterval(timer);
   }, []);
 
@@ -71,12 +69,10 @@ const LandingPage = ({ scrollToContact }) => {
 
             <div className="cta-buttons">
               <button onClick={scrollToContact} className="alaga-button">
-                <Phone size={18} />
-                Book Us Now
+                <Phone size={18} /> Book Us Now
               </button>
               <button onClick={scrollToContact} className="alaga-button-secondary">
-                <Mail size={18} />
-                Contact Us
+                <Mail size={18} /> Contact Us
               </button>
             </div>
 
