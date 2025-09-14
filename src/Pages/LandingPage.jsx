@@ -74,14 +74,32 @@ const LandingPage = () => {
             <p>{slides[index].text}</p>
 
             <div className="cta-buttons">
-              <button onClick={() => navigate("#contact")} className="alaga-button">
+              <button
+                onClick={() => {
+                  const contactSection = document.getElementById("contact");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="alaga-button"
+              >
                 <Phone size={18} />
                 Book Us Now
               </button>
-              <button onClick={() => navigate("#contact")} className="alaga-button-secondary">
+
+              <button
+                onClick={() => {
+                  const contactSection = document.getElementById("contact");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="alaga-button-secondary"
+              >
                 <Mail size={18} />
                 Contact Us
               </button>
+
             </div>
 
             {/* Prev / Next */}
