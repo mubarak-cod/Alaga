@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Phone, Mail } from "lucide-react";
 import "./LandingPage.css";
 
@@ -39,9 +38,8 @@ const variants = {
   exit: { opacity: 0, x: -50, transition: { duration: 0.6 } },
 };
 
-const LandingPage = () => {
+const LandingPage = ({ scrollToContact }) => {
   const [index, setIndex] = useState(0);
-  const navigate = useNavigate();
 
   const handleNext = () => setIndex((prev) => (prev + 1) % slides.length);
   const handlePrev = () => setIndex((prev) => (prev - 1 + slides.length) % slides.length);
@@ -65,44 +63,23 @@ const LandingPage = () => {
           className="slide-background"
           style={{ backgroundImage: `url(${slides[index].image})` }}
         >
-          {/* Overlay */}
           <div className="overlay" />
 
-          {/* Content */}
           <div className="slide-text">
             <h1>{slides[index].heading}</h1>
             <p>{slides[index].text}</p>
 
             <div className="cta-buttons">
-              <button
-                onClick={() => {
-                  const contactSection = document.getElementById("contact");
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                className="alaga-button"
-              >
+              <button onClick={scrollToContact} className="alaga-button">
                 <Phone size={18} />
                 Book Us Now
               </button>
-
-              <button
-                onClick={() => {
-                  const contactSection = document.getElementById("contact");
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                className="alaga-button-secondary"
-              >
+              <button onClick={scrollToContact} className="alaga-button-secondary">
                 <Mail size={18} />
                 Contact Us
               </button>
-
             </div>
 
-            {/* Prev / Next */}
             <div className="slide-controls">
               <button onClick={handlePrev} className="alaga-nav-btn">
                 <ArrowLeft size={20} />

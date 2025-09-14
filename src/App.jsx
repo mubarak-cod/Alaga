@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useRef } from "react";
 import "@fontsource/poppins";
 import "./App.css";
 
@@ -23,16 +23,22 @@ const BookNowSection = lazy(() => import("./Components/BookNowSection"));
 const ContactForm = lazy(() => import("./Components/ContactForm"));
 
 function App() {
+  const contactRef = useRef(null);
+
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Router>
-      <Header />
+      <Header scrollToContact={scrollToContact} />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <LandingPage />
+                <LandingPage scrollToContact={scrollToContact} />
                 <WhyMe />
                 <OurPromise />
                 <MeetOwner />
@@ -40,7 +46,7 @@ function App() {
                 <PhotoGallery />
                 <TestimonialSection />
                 <BookNowSection />
-                <section id="contact">
+                <section id="contact" ref={contactRef}>
                   <ContactForm />
                 </section>
               </>
