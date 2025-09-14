@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy } from "react";
 import "@fontsource/poppins";
 import "./App.css";
 
@@ -8,60 +8,49 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Loader from "./Components/Loader";
 
-import LandingPage from "./Pages/LandingPage";
-import AboutUs from "./Pages/AboutUs";
-import HowItWorks from "./Pages/HowItWorks";
-import WhyMe from "./Components/WhyMe";
-import OurPromise from "./Components/OurPromise";
-import MeetOwner from "./Components/MeetOwner";
-import WhatWeDo from "./Components/WhatWeDo";
-import PhotoGallery from "./Components/PhotoGallery";
-import TestimonialSection from "./Components/TestimonialSection";
-import BookNowSection from "./Components/BookNowSection";
-import ContactForm from "./Components/ContactForm";
-
-import EngagementList from "./Pages/EngagementList";
+// Lazy-loaded pages & components
+const LandingPage = lazy(() => import("./Pages/LandingPage"));
+const AboutUs = lazy(() => import("./Pages/AboutUs"));
+const HowItWorks = lazy(() => import("./Pages/HowItWorks"));
+const EngagementList = lazy(() => import("./Pages/EngagementList"));
+const WhyMe = lazy(() => import("./Components/WhyMe"));
+const OurPromise = lazy(() => import("./Components/OurPromise"));
+const MeetOwner = lazy(() => import("./Components/MeetOwner"));
+const WhatWeDo = lazy(() => import("./Components/WhatWeDo"));
+const PhotoGallery = lazy(() => import("./Components/PhotoGallery"));
+const TestimonialSection = lazy(() => import("./Components/TestimonialSection"));
+const BookNowSection = lazy(() => import("./Components/BookNowSection"));
+const ContactForm = lazy(() => import("./Components/ContactForm"));
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading time (e.g., fetching or assets)
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1200); // show loader for 1.2s minimum
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) return <Loader />;
-
   return (
     <Router>
       <Header />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <LandingPage />
-              <WhyMe />
-              <OurPromise />
-              <MeetOwner />
-              <WhatWeDo />
-              <PhotoGallery />
-              <TestimonialSection />
-              <BookNowSection />
-              <section id="contact">
-                <ContactForm />
-              </section>
-            </>
-          }
-        />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/engagement-list" element={<EngagementList />} />
-        <Route path="/how-it-works" element={<HowItWorks />} />
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <LandingPage />
+                <WhyMe />
+                <OurPromise />
+                <MeetOwner />
+                <WhatWeDo />
+                <PhotoGallery />
+                <TestimonialSection />
+                <BookNowSection />
+                <section id="contact">
+                  <ContactForm />
+                </section>
+              </>
+            }
+          />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/engagement-list" element={<EngagementList />} />
+          <Route path="/how-it-works" element={<HowItWorks />} />
+        </Routes>
+      </Suspense>
       <Footer />
     </Router>
   );

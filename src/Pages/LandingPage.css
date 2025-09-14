@@ -1,31 +1,39 @@
-.landing-container {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* keep closer to left */
-  overflow: hidden;
-  font-family: 'Poppins', sans-serif;
-  color: white;
-  padding: 0 6vw;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
 }
 
-.slide {
+.landing-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide-background {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
-  max-width: 1200px;
-  gap: 2rem;
+  padding: 0 10%;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.452);
 }
 
 .slide-text {
-  flex: 1;
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 600px;
   text-align: left;
-  max-width: 480px;
 }
 
 .slide-text h1 {
@@ -37,27 +45,28 @@
 
 .slide-text p {
   font-size: 1.2rem;
-  line-height: 1.6;
   margin-bottom: 2rem;
-  color: #e5e7eb;
+  line-height: 1.6;
+  color: #f3f4f6;
 }
 
 .cta-buttons {
   display: flex;
-  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .alaga-button,
 .alaga-button-secondary {
-  display: flex;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border-radius: 9999px;
-  padding: 0.8rem 1.6rem;
-  font-weight: 600;
-  font-size: 1rem;
   transition: all 0.3s ease;
 }
 
@@ -65,73 +74,43 @@
   background: #facc15;
   color: #111;
 }
-
 .alaga-button:hover {
   background: #fde047;
-  transform: translateY(-2px);
 }
 
 .alaga-button-secondary {
   background: #fff;
   color: #111;
 }
-
 .alaga-button-secondary:hover {
   background: #e5e7eb;
-  transform: translateY(-2px);
 }
 
 .slide-controls {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
 .alaga-nav-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #facc15;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  border: 2px solid #facc15;
-  color: #facc15;
-  padding: 0.6rem;
-  border-radius: 50%;
+  cursor: pointer;
+  color: #111;
   transition: all 0.3s ease;
 }
 
 .alaga-nav-btn:hover {
-  background: #facc15;
-  color: #111;
+  background: #fde047;
 }
 
-.slide-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.slide-image img {
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-}
-
-/* ✅ Responsive */
+/* Mobile */
 @media (max-width: 768px) {
-  .slide {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
-    text-align: left;
-  }
-
-  .slide-text {
-    max-width: 100%;
-  }
-
   .slide-text h1 {
     font-size: 2rem;
   }
@@ -143,13 +122,5 @@
   .cta-buttons {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .slide-controls {
-    justify-content: flex-start;
-  }
-
-  .slide-image img {
-    max-width: 320px;
   }
 }
