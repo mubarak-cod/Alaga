@@ -74,11 +74,11 @@ const LandingPage = () => {
             <p>{slides[index].text}</p>
 
             <div className="cta-buttons">
-              <button onClick={() => navigate("/Contactform#book")} className="alaga-button">
+              <button onClick={() => navigate("#contact")} className="alaga-button">
                 <Phone size={18} />
                 Book Us Now
               </button>
-              <button onClick={() => navigate("/Contactform#contact")} className="alaga-button-secondary">
+              <button onClick={() => navigate("#contact")} className="alaga-button-secondary">
                 <Mail size={18} />
                 Contact Us
               </button>
