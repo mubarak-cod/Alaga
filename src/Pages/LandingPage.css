@@ -123,4 +123,12 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
+  
+}
+
+@media (max-width: 450px) {
+  .slide-background {
+    margin-bottom: 40%;
+  }
 }
